@@ -35,6 +35,8 @@ Get-Content .env | ForEach-Object { 
 } | ConvertTo-Json | Out-File -FilePath env.json
 ```
 
+
+
 #### Bash
 ```bash
 cat .env | jq -R '. | capture("(?<name>[A-Z_]+)=(?<value>.*)")' | jq -s '.[].slotSetting=false' > env.json
